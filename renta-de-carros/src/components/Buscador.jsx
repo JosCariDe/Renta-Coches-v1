@@ -1,17 +1,14 @@
 // src/components/Buscador.jsx
 import { useEffect, useState } from 'react';
-//import carList from '../../public/cochesEjemplos.js';
 import { Link, useNavigate } from 'react-router-dom';
 import './Buscador.css';
 import axios from 'axios';
 import { NumericFormat } from 'react-number-format';
 
 export default function Buscador() {
-
-
   const urlBase = "http://localhost:8080/api/v1/rents";
 
-  const[cochesBd, setCochesBd] = useState([]);
+  const [cochesBd, setCochesBd] = useState([]);
 
   useEffect(() => {
     cargarCochesBd();
@@ -87,45 +84,52 @@ export default function Buscador() {
         <section className="result-section">
           {
             cochesFiltrados.length > 0 && (
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>Imagen</th>
-                  <th>Modelo</th>
-                  <th>Fecha Inicio</th>
-                  <th>Fecha FInal</th>
-                  <th>Ciudad</th>
-                  <th>Precio</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cochesFiltrados.map((coche) => (
-                  <tr key={coche.id}>
-                    <td>
-                      <img src={coche.imagen} alt={coche.modelo} width="100" />
-                    </td>
-                    <td>{coche.modelo}</td>
-                    <td>{coche.fechaInicio}</td>
-                    <td>{coche.fechaFinal}</td>
-                    <td>{coche.ciudad}</td>
-                    <td><NumericFormat value={coche.precio}
-                        displayType={'text'}
-                        thousandSeparator=',' prefix='$'
-                        decimalScale={2} fixedDecimalScale/>
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => navigate(`/renta/${coche.id}`)}
-                        className="btn btn-success"
-                      >
-                        Rent Car
-                      </button>
-                    </td>
+            <div className="table-responsive">
+              <table className="table table-striped table-centered">
+                <thead>
+                  <tr>
+                    <th>Imagen</th>
+                    <th>Modelo</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Ciudad</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {cochesFiltrados.map((coche) => (
+                    <tr key={coche.id}>
+                      <td className="car-image">
+                        <img src={coche.url} alt={coche.modelo} className="car-img" />
+                      </td>
+                      <td>{coche.modelo}</td>
+                      <td>{coche.fechaInicio}</td>
+                      <td>{coche.fechaFinal}</td>
+                      <td>{coche.ciudad}</td>
+                      <td>
+                        <NumericFormat
+                          value={coche.precio}
+                          displayType={'text'}
+                          thousandSeparator=','
+                          prefix='$'
+                          decimalScale={2}
+                          fixedDecimalScale
+                        />
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => navigate(`/renta/${coche.id}`)}
+                          className="btn btn-success"
+                        >
+                          Rent Car
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </section>
       </main>

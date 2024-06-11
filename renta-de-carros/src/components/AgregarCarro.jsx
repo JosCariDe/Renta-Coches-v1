@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-export default function AgregarCarro({ addCar }) {
+import './FormularioRenta.css';
+export default function AgregarCarro() {
   const [coche, setCoche] = useState({
     ciudad: '',
     modelo: '',
@@ -10,8 +10,8 @@ export default function AgregarCarro({ addCar }) {
     fechaInicio: '',
     fechaFinal: '',
     precio: '',
+    url: '',
   });
-  const [imagen, setImagen] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -29,17 +29,16 @@ export default function AgregarCarro({ addCar }) {
       setError('La fecha de inicio debe ser anterior a la fecha final');
       return;
     }
-    const newCar = { ...coche, imagen };
+
     onSubmit();
-    addCar(newCar);
+
     navigate('/');
   };
 
   const onSubmit = async () => {
     const urlBase = "http://localhost:8080/api/v1/rents";
-    await axios.post(urlBase,coche);
-    
-  }
+    await axios.post(urlBase, coche);
+  };
 
   return (
     <div className="container mt-4">
@@ -122,16 +121,17 @@ export default function AgregarCarro({ addCar }) {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="imagen">URL de la Imagen</label>
+              <label htmlFor="url">URL de la Imagen</label>
               <input
                 type="text"
                 className="form-control"
-                id="imagen"
-                value={imagen}
-                onChange={(e) => setImagen(e.target.value)}
+                id="url"
+                name="url"
+                value={coche.url}
+                onChange={handleChange}
               />
             </div>
-            <button type="submit" className="btn btn-success mr-2">
+            <button type="submit" className="btn btn-success mr-2 margin" >
               Agregar Carro
             </button>
             <button type="button" className="btn btn-danger" onClick={() => navigate('/')}>

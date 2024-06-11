@@ -29,7 +29,7 @@ export default function ResumenRenta() {
         <section className="summary-section">
           <h2>Resumen de Renta</h2>
           <div className="card">
-            <img src={car.imagen} alt={car.modelo} className="card-img-top" />
+            <img src={car.url} alt={car.modelo} className="card-img-top" />
             <div className="card-body">
               <h5 className="card-title">{car.modelo}</h5>
               <p className="card-text">Marca: {car.marca}</p>

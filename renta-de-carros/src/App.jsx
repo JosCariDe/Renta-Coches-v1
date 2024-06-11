@@ -6,6 +6,7 @@ import FormularioRenta from './components/FormularioRenta';
 import AgregarCarro from './components/AgregarCarro';
 import ResumenRenta from './components/ResumenRenta';
 import Clientes from './components/Clientes';
+import CarrosRentados from './components/CarrosRentados';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/agregar-carro" element={<AgregarCarro addCar={addCar} />} />
         <Route path="/resumen-renta/:idRenta/:idCliente" element={<ResumenRenta />} />
         <Route path="/clientes" element={<Clientes />} />
+        <Route path="/clientes/:clientId/carros-rentados" element={<CarrosRentados />} />
     </Routes>
   );
 }

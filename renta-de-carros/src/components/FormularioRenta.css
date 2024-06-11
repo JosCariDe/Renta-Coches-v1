@@ -1,93 +1,41 @@
-/* src/components/FormularioRenta.css */
 
-.formulario-container {
-    font-family: Arial, sans-serif;
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 20px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .header h1 {
-    font-size: 24px;
-  }
-  
-  .header nav {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .add-car-btn {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .main {
+.main {
     text-align: center;
-  }
+}
   
-  .form-section {
+.form-section {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  .form-section h2 {
+.form-section h2 {
     font-size: 20px;
     margin-bottom: 20px;
-  }
+}
   
-  .form-group {
+.form-group {
     margin-bottom: 15px;
-  }
+}
   
-  .form-group label {
+.form-group label {
     display: block;
     margin-bottom: 5px;
     font-size: 14px;
-  }
+}
   
-  .form-group input {
+.form-group input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
-  }
+}
   
-  .confirm-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-right: 10px;
-  }
+.margin {
+  margin: 10px;
+}
+
   
-  .cancel-btn {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .terms-link {
-    display: block;
-    margin-top: 20px;
-    color: #007bff;
-    text-decoration: none;
-  }
+ 
   
